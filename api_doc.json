@@ -5,7 +5,7 @@
     "description": "API Documentation",
     "version": "1.0.0"
   },
-  "host": "www.seveneleven.com",
+  "host": "seveneleven.rayytech.com",
   "basePath": "/",
   "tags": [],
   "schemes": ["https", "http"],
@@ -632,7 +632,7 @@
         }
       }
     },
-    
+
     "/api/e1/image/delete-file": {
       "post": {
         "tags": ["Image"],
