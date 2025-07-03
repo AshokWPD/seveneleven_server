@@ -4,11 +4,8 @@ const path = require("path");
 const helmet = require("helmet");
 require("dotenv").config();
 
-
-const express = require("express");
 const session = require("express-session");
 const passport = require("./config/passport");
-
 
 const bodyParser = require("body-parser");
 const sequelize = require("./config/db");
@@ -67,7 +64,6 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 (async () => {
   try {
