@@ -1,0 +1,2374 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Seven Eleven",
+    "description": "API Documentation",
+    "version": "1.0.0"
+  },
+  "host": "www.seveneleven.com",
+  "basePath": "/",
+  "tags": [],
+  "schemes": ["https", "http"],
+  "securityDefinitions": {
+    "BearerAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "JWT Authorization header using the Bearer scheme. Example: 'Authorization: Bearer {token}'"
+    }
+  },
+  "paths": {
+    "/api/e1/admin/createAdmin": {
+      "post": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/Admin"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/e1/admin/login": {
+      "post": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "identifier": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/e1/admin/editAdmin/{id}": {
+      "put": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/Admin"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/admin/getAdmin": {
+      "get": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "phoneNumber",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/admin/getAllAdmins": {
+      "get": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/admin/search": {
+      "get": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/admin/delete/{id}": {
+      "delete": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/admin/forgotPassword/{identifier}": {
+      "post": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+
+    "/api/e1/admin/verifyOTP": {
+      "post": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "phoneNumber": {
+                  "example": "any"
+                },
+                "userEmail": {
+                  "example": "any"
+                },
+                "otp": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/e1/admin/updatePassword": {
+      "put": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "phoneNumber": {
+                  "example": "any"
+                },
+                "userEmail": {
+                  "example": "any"
+                },
+                "newPassword": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/e1/admin/validateKey": {
+      "get": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/admin/getuserByKey": {
+      "get": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/admin/unsignKey": {
+      "get": {
+        "tags": ["Admin"],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/user/A/createUser": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/User"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/user/UV/editUser/{id}": {
+      "put": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/User"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/user/login": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userEmail": {
+                  "example": "any"
+                },
+                "phoneNumber": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/e1/user/newUserEntry": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userEmail": {
+                  "example": "any"
+                },
+                "phoneNumber": {
+                  "example": "any"
+                },
+                "username": {
+                  "example": "any"
+                },
+                "isAllowWhatsapp": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/e1/user/resendOTP": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userEmail": {
+                  "example": "any"
+                },
+                "phoneNumber": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/e1/user/UV/getUser": {
+      "get": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "phoneNumber",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/user/A/getAllUsers": {
+      "get": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/user/A/search": {
+      "get": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/user/A/delete/{id}": {
+      "delete": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/user/verifyOTP": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "any"
+                },
+                "phoneNumber": {
+                  "example": "any"
+                },
+                "userEmail": {
+                  "example": "any"
+                },
+                "otp": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/e1/user/UV/validateKey": {
+      "get": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/user/UV/getuserByKey": {
+      "get": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/user/UV/unsignKey": {
+      "get": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    
+    "/api/e1/image/delete-file": {
+      "post": {
+        "tags": ["Image"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "filePath": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+
+    "/api/e1/assetsUpload/uploadAssets": {
+      "post": {
+        "tags": ["Image"],
+        "summary": "Upload an asset file",
+        "consumes": ["multipart/form-data"],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "The file to upload",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/e1/banner/A/CreateBanner": {
+      "post": {
+        "tags": ["Banner"],
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/Banner"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/banner/A/editBanner/{id}": {
+      "put": {
+        "tags": ["Banner"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/Banner"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/banner/A/deleteBanner/{id}": {
+      "delete": {
+        "tags": ["Banner"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/banner/UV/getBanner/{id}": {
+      "get": {
+        "tags": ["Banner"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/banner/UV/getAllBanners": {
+      "get": {
+        "tags": ["Banner"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "categoryName",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "subCategoryName",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "isActive",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/banner/A/toggleBannerStatus/{id}": {
+      "patch": {
+        "tags": ["Banner"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/banner/UV/getActiveBanners": {
+      "get": {
+        "tags": ["Banner"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+
+    "/api/e1/userDetails/UA/createUserDetail": {
+      "post": {
+        "tags": ["UserDetails"],
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/UserDetails"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/userDetails/UA/updateUserDetail/{id}": {
+      "put": {
+        "tags": ["UserDetails"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/UserDetails"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/userDetails/UV/getUserDetail/{id}": {
+      "get": {
+        "tags": ["UserDetails"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/userDetails/UV/getallUserDetail": {
+      "get": {
+        "tags": ["UserDetails"],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/userDetails/UV/getUserDetail-by-user/{userId}": {
+      "get": {
+        "tags": ["UserDetails"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+
+    "/api/e1/commercialLinks/A/createCommercialLink": {
+      "post": {
+        "tags": ["Commercial Links"],
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/CommercialLink"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/commercialLinks/A/editCommercialLink/{id}": {
+      "put": {
+        "tags": ["Commercial Links"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/CommercialLink"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/commercialLinks/A/deleteCommercialLink/{id}": {
+      "delete": {
+        "tags": ["Commercial Links"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/commercialLinks/UV/getAllCommercialLinks": {
+      "get": {
+        "tags": ["Commercial Links"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/commercialLinks/UV/getCommercialLink/{id}": {
+      "get": {
+        "tags": ["Commercial Links"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/UV/createHelpTicket": {
+      "post": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/HelpTicket"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/A/editHelpTicket/{id}": {
+      "put": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/components/schemas/HelpTicket"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/A/deleteHelpTicket/{id}": {
+      "delete": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/UV/getAllHelpTickets": {
+      "get": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/UV/getHelpTicket/{id}": {
+      "get": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/UV/getTicketsByUser/{userId}": {
+      "get": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/UV/getTicketsByStatus": {
+      "get": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/A/respondToTicket/{id}": {
+      "put": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "response": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/A/bulkCloseResolvedTickets": {
+      "put": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/UV/searchTickets": {
+      "get": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/A/countTicketsByStatus": {
+      "get": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/e1/helpTickets/A/exportTicketsCSV": {
+      "get": {
+        "tags": ["Help Tickets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "required": ["username", "type"],
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "Ashok"
+          },
+          "userEmail": {
+            "type": "string",
+            "format": "email",
+            "example": "ashok@gmail.com"
+          },
+          "isAllowed": {
+            "type": "boolean",
+            "example": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "1234567890"
+          },
+          "gender": {
+            "type": "string",
+            "example": "male"
+          },
+          "age": {
+            "type": "integer",
+            "example": 23
+          },
+          "profileImg": {
+            "type": "string",
+            "example": "https://example.com/image.jpg"
+          },
+          "history": {
+            "type": "string",
+            "example": ""
+          },
+          "location": {
+            "type": "string",
+            "example": "Thiruvarur"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "float",
+            "example": 40.7128
+          },
+          "longitude": {
+            "type": "number",
+            "format": "float",
+            "example": -74.006
+          }
+        }
+      },
+      "Admin": {
+        "type": "object",
+        "required": ["username", "password", "type"],
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "admin"
+          },
+          "userEmail": {
+            "type": "string",
+            "format": "email",
+            "example": "admin@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          },
+          "isAllowed": {
+            "type": "boolean",
+            "example": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "+1987654321"
+          },
+          "gender": {
+            "type": "string",
+            "example": "male"
+          },
+          "age": {
+            "type": "integer",
+            "example": 35
+          },
+          "profileImg": {
+            "type": "string",
+            "example": "https://example.com/avatar.jpg"
+          },
+          "history": {
+            "type": "string",
+            "example": "Updated profile on 2025-03-10"
+          },
+          "location": {
+            "type": "string",
+            "example": "Los Angeles"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "float",
+            "example": 34.0522
+          },
+          "longitude": {
+            "type": "number",
+            "format": "float",
+            "example": -118.2437
+          }
+        }
+      },
+      "Category": {
+        "type": "object",
+        "required": ["categoryName"],
+        "properties": {
+          "categoryName": {
+            "type": "string",
+            "example": "Electronics"
+          },
+          "categoryImage": {
+            "type": "string",
+            "example": "assets/images.png"
+          },
+          "priority": {
+            "type": "string",
+            "example": "High"
+          },
+          "searchTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["gadgets", "tech"]
+          }
+        }
+      },
+      "SubCategory": {
+        "type": "object",
+        "required": ["categoryId", "subCategoryName"],
+        "properties": {
+          "categoryId": {
+            "type": "integer",
+            "example": 1
+          },
+          "subCategoryName": {
+            "type": "string",
+            "example": "Smartphones"
+          },
+          "categoryImage": {
+            "type": "string",
+            "example": "assets/images.png"
+          },
+          "priority": {
+            "type": "string",
+            "example": "High"
+          },
+          "searchTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["phones", "mobiles"]
+          }
+        }
+      },
+      "VendorsDetail": {
+        "type": "object",
+        "required": [
+          "vendorId",
+          "shopName",
+          "shopImage",
+          "ownerName",
+          "emailId",
+          "mobileNumber",
+          "address",
+          "city",
+          "state",
+          "pincode",
+          "categoryId"
+        ],
+        "properties": {
+          "vendorId": {
+            "type": "integer",
+            "example": 101
+          },
+          "shopName": {
+            "type": "string",
+            "example": "TechWorld Store"
+          },
+          "shopImage": {
+            "type": "string",
+            "example": "assets/image.png"
+          },
+          "ownerName": {
+            "type": "string",
+            "example": "Rajesh Kumar"
+          },
+          "emailId": {
+            "type": "string",
+            "example": "rajesh@techworld.com"
+          },
+          "mobileNumber": {
+            "type": "string",
+            "example": "9876543210"
+          },
+          "address": {
+            "type": "string",
+            "example": "123 Main Road, Indira Nagar"
+          },
+          "city": {
+            "type": "string",
+            "example": "Chennai"
+          },
+          "state": {
+            "type": "string",
+            "example": "Tamil Nadu"
+          },
+          "pincode": {
+            "type": "string",
+            "example": "600020"
+          },
+          "categoryId": {
+            "type": "integer",
+            "example": 1
+          },
+          "istempClose": {
+            "type": "boolean",
+            "example": false
+          },
+          "description": {
+            "type": "string",
+            "example": "Spacious salon offering haircuts, spa, and more"
+          },
+          "rules": {
+            "type": "string",
+            "example": "No smoking, Maintain silence"
+          },
+          "amenities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["Parking", "Water", "Wifi"]
+          },
+          "latitude": {
+            "type": "number",
+            "format": "float",
+            "example": 13.0827
+          },
+          "longitude": {
+            "type": "number",
+            "format": "float",
+            "example": 80.2707
+          },
+          "workingDays": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["Monday", "Tuesday", "Wednesday"]
+          },
+          "initialPayment": {
+            "type": "integer",
+            "example": 500
+          },
+          "advanceHoursBeforeBook": {
+            "type": "number",
+            "format": "float",
+            "example": 2.5
+          },
+          "workStartTime": {
+            "type": "string",
+            "example": "09:00"
+          },
+          "workEndTime": {
+            "type": "string",
+            "example": "18:00"
+          },
+          "docUrl": {
+            "type": "string",
+            "example": "https://example.com/vendor-documents/license.pdf"
+          }
+        }
+      },
+      "Banner": {
+        "type": "object",
+        "required": ["bannerType"],
+        "properties": {
+          "bannerType": {
+            "type": "string",
+            "example": "Promo"
+          },
+          "categoryName": {
+            "type": "string",
+            "example": "Electronics"
+          },
+          "subCategoryName": {
+            "type": "string",
+            "example": "Mobile Phones"
+          },
+          "bannerImage": {
+            "type": "string",
+            "example": "assets/banners/banner1.jpg"
+          },
+          "redirectURLWeb": {
+            "type": "string",
+            "example": "https://example.com/deal"
+          },
+          "redirectURLapp": {
+            "type": "string",
+            "example": "app://deal-page"
+          },
+          "platform": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["Web", "Vendor App", "User App"]
+          },
+          "isActive": {
+            "type": "boolean",
+            "example": true
+          },
+          "title": {
+            "type": "string",
+            "example": "Mega Sale"
+          },
+          "description": {
+            "type": "string",
+            "example": "Enjoy up to 70% off on electronics this week only!"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-05-01T00:00:00Z"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-05-07T23:59:59Z"
+          },
+          "created_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-04-01T12:00:00Z"
+          },
+          "updated_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-04-15T15:30:00Z"
+          }
+        }
+      },
+      "BankDetails": {
+        "type": "object",
+        "required": [
+          "vendorId",
+          "bankName",
+          "accountType",
+          "accountNumber",
+          "accountHolder",
+          "panNumber",
+          "gstNumber",
+          "ifscCode",
+          "branchName",
+          "bankProof"
+        ],
+        "properties": {
+          "vendorId": {
+            "type": "integer",
+            "example": 101
+          },
+          "bankName": {
+            "type": "string",
+            "example": "State Bank of India"
+          },
+          "accountType": {
+            "type": "string",
+            "example": "Savings"
+          },
+          "accountNumber": {
+            "type": "string",
+            "example": "123456789012"
+          },
+          "accountHolder": {
+            "type": "string",
+            "example": "Rajesh Kumar"
+          },
+          "panNumber": {
+            "type": "string",
+            "example": "ABCDE1234F"
+          },
+          "tanNumber": {
+            "type": "string",
+            "example": "PDES03028F"
+          },
+          "gstNumber": {
+            "type": "string",
+            "example": "29ABCDE1234F1Z5"
+          },
+          "ifscCode": {
+            "type": "string",
+            "example": "SBIN0000123"
+          },
+          "branchName": {
+            "type": "string",
+            "example": "Indira Nagar Branch"
+          },
+          "isVerified": {
+            "type": "boolean",
+            "example": true
+          },
+          "bankProof": {
+            "type": "string",
+            "example": "uploads/proofs/bank_passbook.jpg"
+          },
+          "created_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-07-15T10:30:00Z"
+          },
+          "updated_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-08-01T15:45:00Z"
+          }
+        }
+      },
+      "UserDetails": {
+        "type": "object",
+        "required": ["userId"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "userId": {
+            "type": "integer",
+            "example": 101
+          },
+          "address": {
+            "type": "string",
+            "example": "123 MG Road, Indira Nagar"
+          },
+          "state": {
+            "type": "string",
+            "example": "Karnataka"
+          },
+          "city": {
+            "type": "string",
+            "example": "Bangalore"
+          },
+          "pincode": {
+            "type": "string",
+            "example": "560038"
+          },
+          "isAllowWhatsapp": {
+            "type": "boolean",
+            "example": true
+          },
+          "allowNotification": {
+            "type": "boolean",
+            "example": true
+          },
+          "searchHistory": {
+            "type": "array",
+            "example": ["electronics", "mobile phones"],
+            "items": {
+              "type": "string"
+            }
+          },
+          "lastSeenService": {
+            "type": "array",
+            "example": [1, 2, 5],
+            "items": {
+              "type": "integer"
+            }
+          },
+          "favorites": {
+            "type": "array",
+            "example": [12, 45, 78],
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "Service": {
+        "type": "object",
+        "required": [
+          "categoryId",
+          "subcategoryIds",
+          "taxModel",
+          "serviceTitle",
+          "servicePrice",
+          "status",
+          "vendorId"
+        ],
+        "properties": {
+          "categoryId": {
+            "type": "integer",
+            "example": 1
+          },
+          "subcategoryIds": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [1, 2, 3]
+          },
+          "subsubcategoryName": {
+            "type": "string",
+            "example": "Mobile Phones"
+          },
+          "gstPercentage": {
+            "type": "number",
+            "example": 18
+          },
+          "taxModel": {
+            "type": "string",
+            "enum": ["inclusive", "exclusive"],
+            "example": "inclusive"
+          },
+          "hintTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["repair", "warranty", "quick"]
+          },
+          "metaTag": {
+            "type": "string",
+            "example": "Best service for smartphones"
+          },
+          "metaTagDescription": {
+            "type": "string",
+            "example": "We provide quick and reliable mobile services across regions."
+          },
+          "imageUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "https://example.com/image1.jpg",
+              "https://example.com/image2.jpg"
+            ]
+          },
+          "thumbnail": {
+            "type": "string",
+            "example": "example.com/image1.jpg"
+          },
+          "serviceTitle": {
+            "type": "string",
+            "example": "Mobile Screen Replacement"
+          },
+          "servicePrice": {
+            "type": "number",
+            "example": 1499.99
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "inactive"],
+            "example": "active"
+          },
+          "vendorId": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "Rating": {
+        "type": "object",
+        "required": ["serviceId", "userId", "userName", "rating"],
+        "properties": {
+          "serviceId": {
+            "type": "integer",
+            "example": 1
+          },
+          "userId": {
+            "type": "integer",
+            "example": 1
+          },
+          "rating": {
+            "type": "number",
+            "format": "float",
+            "minimum": 0,
+            "maximum": 5,
+            "example": 4.5
+          },
+          "description": {
+            "type": "string",
+            "example": "Excellent service and quick response!"
+          }
+        }
+      },
+      "Notification": {
+        "type": "object",
+        "required": ["userId", "title", "body"],
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "example": "Booking Confirmed"
+          },
+          "body": {
+            "type": "string",
+            "example": "Your booking for Room #203 has been confirmed."
+          },
+          "imageUrl": {
+            "type": "string",
+            "example": "https://example.com/images/booking.png"
+          },
+          "type": {
+            "type": "string",
+            "example": "booking"
+          },
+          "appRoute": {
+            "type": "string",
+            "example": "/booking/details/203"
+          },
+          "webRoute": {
+            "type": "string",
+            "example": "/web/booking/203"
+          },
+          "isRead": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "SlotSession": {
+        "type": "object",
+        "required": ["vendorId", "startTime", "endTime", "price", "capacity"],
+        "properties": {
+          "vendorId": {
+            "type": "integer",
+            "example": 101
+          },
+          "startTime": {
+            "type": "string",
+            "format": "time",
+            "example": "09:00"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "time",
+            "example": "11:00"
+          },
+          "capacity": {
+            "type": "integer",
+            "example": 20
+          },
+          "services": {
+            "type": "array",
+            "description": "List of service IDs and their statuses",
+            "items": {
+              "type": "object",
+              "required": ["serviceId"],
+              "properties": {
+                "serviceId": {
+                  "type": "integer",
+                  "example": 5
+                },
+                "price": {
+                  "type": "number",
+                  "format": "float",
+                  "example": 499.99
+                },
+                "status": {
+                  "type": "string",
+                  "enum": ["active", "inactive"],
+                  "example": "active"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Offer": {
+        "type": "object",
+        "required": [
+          "discountType",
+          "couponTitle",
+          "couponCode",
+          "applicableCategory",
+          "typeOfDiscount",
+          "limitsforSameUser",
+          "startDate",
+          "endDate",
+          "serviceIds"
+        ],
+        "properties": {
+          "discountType": {
+            "type": "string",
+            "enum": ["percentage", "flat"],
+            "example": "percentage"
+          },
+          "couponTitle": {
+            "type": "string",
+            "example": "Summer Special 20% OFF"
+          },
+          "couponCode": {
+            "type": "string",
+            "example": "SUMMER20"
+          },
+          "applicableCategory": {
+            "type": "integer",
+            "example": 3
+          },
+          "typeOfDiscount": {
+            "type": "string",
+            "enum": ["public", "private"],
+            "example": "public"
+          },
+          "limitsforSameUser": {
+            "type": "integer",
+            "example": 2
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-15T00:00:00.000Z"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-07-15T23:59:59.000Z"
+          },
+          "serviceIds": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [101, 102, 103]
+          },
+          "created_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-10T10:00:00.000Z"
+          },
+          "updated_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-10T10:00:00.000Z"
+          }
+        }
+      },
+      "Booking": {
+        "type": "object",
+        "required": [
+          "vendorId",
+          "userId",
+          "serviceId",
+          "bookingDate",
+          "totalAmount"
+        ],
+        "properties": {
+          "vendorId": {
+            "type": "integer",
+            "example": 12
+          },
+          "userId": {
+            "type": "integer",
+            "example": 101
+          },
+          "serviceId": {
+            "type": "integer",
+            "example": 205
+          },
+          "offerId": {
+            "type": "integer",
+            "nullable": true,
+            "example": 3
+          },
+          "slotSessionId": {
+            "type": "integer",
+            "nullable": true,
+            "example": 7
+          },
+          "bookingDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2025-06-20"
+          },
+          "timeSlot": {
+            "type": "string",
+            "example": "10:00 AM - 11:00 AM",
+            "nullable": true
+          },
+          "memberCount": {
+            "type": "integer",
+            "example": 2,
+            "default": 1
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "float",
+            "example": 1500
+          },
+          "discountAmount": {
+            "type": "number",
+            "format": "float",
+            "default": 0,
+            "example": 100
+          },
+          "paymentMode": {
+            "type": "string",
+            "enum": ["cash", "online", "upi", "card"],
+            "default": "cash",
+            "example": "online"
+          },
+          "paymentStatus": {
+            "type": "string",
+            "enum": ["pending", "paid", "failed"],
+            "default": "pending",
+            "example": "paid"
+          },
+          "bookingStatus": {
+            "type": "string",
+            "enum": ["booked", "cancelled", "completed", "rejected"],
+            "default": "booked",
+            "example": "completed"
+          },
+          "specialRequest": {
+            "type": "string",
+            "nullable": true,
+            "example": "Need a wheelchair accessible area"
+          },
+          "ratingGiven": {
+            "type": "boolean",
+            "default": false,
+            "example": false
+          },
+          "created_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-10T10:00:00.000Z"
+          },
+          "updated_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-11T15:30:00.000Z"
+          }
+        }
+      },
+      "Payment": {
+        "type": "object",
+        "required": ["bookingId", "amount", "paymentMethod"],
+        "properties": {
+          "bookingId": {
+            "type": "integer",
+            "example": 23
+          },
+          "amount": {
+            "type": "number",
+            "format": "float",
+            "example": 499.99
+          },
+          "paymentMethod": {
+            "type": "string",
+            "enum": ["cash", "card", "upi", "netbanking", "wallet"],
+            "example": "upi"
+          },
+          "transactionId": {
+            "type": "string",
+            "nullable": true,
+            "example": "TXN123456789"
+          },
+          "paymentStatus": {
+            "type": "string",
+            "enum": ["success", "failed", "pending"],
+            "default": "pending",
+            "example": "success"
+          },
+          "paymentDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2025-06-15T07:30:00.000Z"
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true,
+            "example": "Advance payment made"
+          },
+          "created_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-14T09:00:00.000Z"
+          },
+          "updated_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-15T10:30:00.000Z"
+          }
+        }
+      },
+      "HelpTicket": {
+        "type": "object",
+        "required": ["userId", "subject", "message"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "userId": {
+            "type": "integer",
+            "example": 101
+          },
+          "subject": {
+            "type": "string",
+            "example": "App not working"
+          },
+          "message": {
+            "type": "string",
+            "example": "The app crashes whenever I try to login."
+          },
+          "status": {
+            "type": "string",
+            "enum": ["open", "in_progress", "resolved", "closed"],
+            "default": "open",
+            "example": "open"
+          },
+          "response": {
+            "type": "string",
+            "nullable": true,
+            "example": "We are working on it."
+          },
+          "created_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-14T09:00:00.000Z"
+          },
+          "updated_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-15T10:30:00.000Z"
+          }
+        }
+      },
+      "CommercialLink": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "facebook": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://facebook.com/yourpage"
+          },
+          "twitter": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://twitter.com/yourhandle"
+          },
+          "instagram": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://instagram.com/yourprofile"
+          },
+          "linkedin": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://linkedin.com/in/yourprofile"
+          },
+          "youtube": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://youtube.com/channel/yourchannel"
+          },
+          "website": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://yourwebsite.com"
+          },
+          "whatsapp": {
+            "type": "string",
+            "nullable": true,
+            "example": "+911234567890"
+          },
+          "created_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-14T09:00:00.000Z"
+          },
+          "updated_At": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-06-15T10:30:00.000Z"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ]
+}

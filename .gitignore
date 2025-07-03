@@ -1,0 +1,9 @@
+node_modules
+
+.codegpt
+
+.env
+
+error_log.csv
+
+config
